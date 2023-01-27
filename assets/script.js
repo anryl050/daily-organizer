@@ -4,21 +4,24 @@
 //! WHEN I open the planner
 //! THEN the current day is displayed at the top of the calendar
 
-// display the current date at the top of the Scheduler (do i need to convert this )
+// display the current date at the top of the Scheduler
 
   var today = dayjs().format("dddd, MMMM D YYYY");  
   // check point for the date to display
   console.log(today);
   // var displayDayEl = document.getElementById("currentDay");
   var displayDayEl =$("#currentDay").get(0);
-  // displayDayEl.innerText = today;
-  displayDayEl.text(today);
- 
+  displayDayEl.innerText = today;
 
-  
+  // var today = moment().format("dddd, MMMM D YYYY");  
+  // $("#displayDayEl").text(today);
+ 
 //! Step 2:
 //! WHEN I scroll down
 //! THEN I am presented with timeblocks for standard business hours
+
+// achieved this by creating elemts in HTML
+// ? question for tutoring session - how this can be done with jQuery
 
 //! Step 3:
 //! WHEN I view the timeblocks for that day
@@ -27,6 +30,9 @@
 //! Step 4:
 //! WHEN I click into a timeblock
 //! THEN I can enter an event
+
+// achieved this by creating elemts in HTML
+// ? question for tutoring session - how this can be done with jQuery
 
 //! Step 5:
 //! WHEN I click the save button for that timeblock
