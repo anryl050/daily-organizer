@@ -14,26 +14,40 @@ $(function () {
     localStorage.setItem(textInput, timeSlot);
   });
     
-  
   // TODO: Add code to apply the past, present, or future class to each time block by comparing the id to the current hour. 
   // * HINTS: How can the id attribute of each time-block be used to conditionally add or remove the past, present, and future classes? How can Day.js be used to get the current hour in 24-hour time?
 
-  var currentTime = dayjs().get('hour');
-  console.log(currentTime);
+  // create a var with Day.js format for current hour
+  var hour = dayjs().format("H");
+  // check point
+  console.log(hour);
 
-  $(".timer-block").each(function(){
-    var timeBlock = parseInt($(this).attr('id').split("hour")[1]);
+  // Add a for loop to increment the hours throughout the day. past, present, and future classes are added to the time block based on the curremt hour of the work day.  
+  var currentTime = parseInt(hour);
+    for (var i = 9; i <= 24; i++) {
+      if ( currentTime < i ) {
+        $("#hour-"+i).addClass('future');
+      } else if ( currentTime === i ) {
+        $("#hour-"+i).addClass('present');
+      } else {
+        $("#hour-"+i).addClass('past');
+      };
+    }
 
-    if (timeBlock < currentTime) {
-      $(this).addClass('future');
-    }
-    else if (timeBlock === currentTime) {
-      $(this).addClass('present');
-    } 
-    else {
-      $(this).addClass('past');
-    }
-  });
+  // var currentTime = dayjs().format("H");
+  // $(".timer-block").each(function(){
+  //   var timeBlock = parseInt($(this).attr('id').split("hour")[2]);
+
+  //   if (timeBlock < currentTime) {
+  //     $(this).addClass('future');
+  //   }
+  //   else if (timeBlock === currentTime) {
+  //     $(this).addClass('present');
+  //   } 
+  //   else {
+  //     $(this).addClass('past');
+  //   }
+  // });
  
   // TODO: Add code to get any user input that was saved in localStorage and set the values of the corresponding textarea elements. 
 
@@ -52,6 +66,7 @@ $(function () {
           
   
   // TODO: Add code to display the current date in the header of the page.
+  
   // creates the var with desired Day.js format (i.e. Sunday, January 29 2023)
   var today = dayjs().format("[Today is] dddd, MMMM D YYYY");  
   // check point
