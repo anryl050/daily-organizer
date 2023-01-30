@@ -5,7 +5,7 @@ The objective of the Challenge 5 was to use the concept of the Third Party APIs 
 
 
 ## Application Summary
-Link to the deployed application: 
+Link to the deployed application: https://anryl050.github.io/daily-organizer/
 
 To execute, the application needs to be opened in the browser.
 
