@@ -8,7 +8,6 @@ $(function () {
 
     // Using "this" to reference the targeted parent/sibling elements within the DOM. This allows the application to know which save button is clicked (this button) rather than a generic reference to a saved button (such as document.QuerySelect(".saveBtn")).
     var timeSlot = $(this).siblings(".description").val();
-    console.log(this);
     var textInput = $(this).parent().attr("id");
 
     // stores the key with the id for the time block (i.e. hour-9) and value with the input from the class description.
@@ -18,28 +17,24 @@ $(function () {
   
   // TODO: Add code to apply the past, present, or future class to each time block by comparing the id to the current hour. 
   // * HINTS: How can the id attribute of each time-block be used to conditionally add or remove the past, present, and future classes? How can Day.js be used to get the current hour in 24-hour time?
-  
-  
-  // var time = dayjs().get('hour');
-  // console.log(time);
-  
-  // $(document).ready(function() {
-    
-    
-    
-    //   if(time === 0){
-      //     $(this).addClass("present");
-      //   }
-      //   if(time > 0){
-        //     $(this).addClass("future");
-        //   }
-        //   if(time < 0){
-          //     $(this).addClass("past");
-          //   }
-          // });
-          
-          
-          //
+
+  var currentTime = dayjs().get('hour');
+  console.log(currentTime);
+
+  $(".timer-block").each(function(){
+    var timeBlock = parseInt($(this).attr('id').split("hour")[1]);
+
+    if (timeBlock < currentTime) {
+      $(this).addClass('future');
+    }
+    else if (timeBlock === currentTime) {
+      $(this).addClass('present');
+    } 
+    else {
+      $(this).addClass('past');
+    }
+  });
+ 
   // TODO: Add code to get any user input that was saved in localStorage and set the values of the corresponding textarea elements. 
 
   // Retrieve the stored values from local storage
