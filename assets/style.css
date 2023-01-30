@@ -12,6 +12,10 @@ textarea {
   padding: 10px;
 }
 
+#currentDay{
+  font-weight: bold;
+}
+
 .description {
   white-space: pre-wrap;
 }
@@ -57,3 +61,4 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
